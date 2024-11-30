@@ -1,10 +1,10 @@
 [package]
-name = "app"
-version = "0.1.0"
+name = "time-shut"
+version = "1.0.0"
 description = "A Tauri App"
-authors = ["you"]
+authors = ["dzaster"]
 license = ""
-repository = ""
+repository = "https://github.com/xdzaster/time-shut"
 edition = "2021"
 rust-version = "1.77.2"
 
