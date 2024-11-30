@@ -4,11 +4,11 @@
 )]
 
 use std::process::Command;
-use tauri::{  Window, WindowEvent};
+use tauri::{Window, WindowEvent};
 
 #[tauri::command]
 fn schedule_shutdown(seconds: u64) -> Result<String, String> {
-    let minutes = seconds /  60;
+    let minutes = seconds / 60;
 
     let result = if cfg!(target_os = "windows") {
         Command::new("shutdown")
@@ -55,13 +55,13 @@ fn cancel_shutdown_internal() -> Result<String, String> {
 fn cancel_shutdown() -> Result<String, String> {
     cancel_shutdown_internal()
 }
- 
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .invoke_handler(tauri::generate_handler![schedule_shutdown, cancel_shutdown])
         .on_window_event(|_window: &Window, event: &WindowEvent| {
-            if let WindowEvent::CloseRequested {   .. } = event {
+            if let WindowEvent::CloseRequested { .. } = event {
                 match cancel_shutdown_internal() {
                     Ok(msg) => println!("{}", msg),
                     Err(err) => eprintln!("Error: {}", err),
