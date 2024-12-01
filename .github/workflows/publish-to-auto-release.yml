@@ -60,5 +60,6 @@ jobs:
           releaseName: "App v__VERSION__"
           releaseBody: "See the assets to download this version and install."
           releaseDraft: true
+          updaterJsonPreferNsis: true
           prerelease: false
           args: ${{ matrix.args }}
