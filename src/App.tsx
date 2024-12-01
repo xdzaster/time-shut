@@ -57,7 +57,7 @@ function App() {
               onClick={scheduleShutdown}
               style={{ padding: "10px 20px", fontSize: "16px" }}
             >
-              Set Timer
+              Start
             </button>
           </>
         )}
