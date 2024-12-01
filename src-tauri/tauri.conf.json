@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "TimeShut",
   "version": "1.0.1",
-  "identifier": "com.example.tauri",
+  "identifier": "com.dzaster.timeshut",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:3000",
