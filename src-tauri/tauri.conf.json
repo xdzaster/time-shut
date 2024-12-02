@@ -14,9 +14,8 @@
     "windows": [
       {
         "title": "TimeShut",
-        "width": 400,
-        "height": 215,
-        "resizable": true,
+        "width": 445,
+        "height": 250,
         "fullscreen": false,
         "decorations": true
       }

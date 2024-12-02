@@ -37,7 +37,6 @@ function TimeCountdown({ initialSeconds }: TimeCountdownProps) {
   return (
     <div className="timeWrapper">
       <div className="timeInput">
-        <label htmlFor="hh">Hours</label>
         <input
           disabled
           className="numberInput"
@@ -47,10 +46,10 @@ function TimeCountdown({ initialSeconds }: TimeCountdownProps) {
           value={String(timeLeft.hours).padStart(2, "0")}
           min={0}
         />
+        <label htmlFor="hh">Hours</label>
       </div>
       <span className="separator">:</span>
       <div className="timeInput">
-        <label htmlFor="mm">Minutes</label>
         <input
           disabled
           className="numberInput"
@@ -61,11 +60,11 @@ function TimeCountdown({ initialSeconds }: TimeCountdownProps) {
           min={0}
           value={String(timeLeft.minutes).padStart(2, "0")}
         />
+        <label htmlFor="mm">Minutes</label>
       </div>
       <span className="separator">:</span>
 
       <div className="timeInput">
-        <label htmlFor="ss">Seconds</label>
         <input
           disabled
           className="numberInput"
@@ -76,6 +75,7 @@ function TimeCountdown({ initialSeconds }: TimeCountdownProps) {
           max={60}
           min={0}
         />
+        <label htmlFor="ss">Seconds</label>
       </div>
     </div>
   );

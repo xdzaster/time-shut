@@ -3,10 +3,12 @@ import { useState } from "react";
 
 import TimeInput, { Time } from "./TimeInput";
 import TimeCountdown from "./TimeCountdown";
+import Presets from "./Presets";
 
 function App() {
   const [time, setTime] = useState<Time>({ hours: 0, minutes: 15, seconds: 0 });
   const [isScheduled, setIsScheduled] = useState(false);
+  const [isPreset, setIsPreset] = useState<boolean>(false);
 
   async function cancelShutdown() {
     try {
@@ -16,6 +18,7 @@ function App() {
       console.error("Error cancelling shutdown:", error);
     }
   }
+
   const scheduleShutdown = async () => {
     const timeInSeconds =
       time.hours * 60 * 60 + time.minutes * 60 + time.seconds;
@@ -32,37 +35,47 @@ function App() {
   };
 
   return (
-    <>
-      <div className="content">
-        {isScheduled ? (
-          <>
-            <TimeCountdown
-              initialSeconds={
-                time.hours * 60 * 60 + time.minutes * 60 + time.seconds
-              }
-            />
-            <button
-              className="actionBtn"
-              onClick={cancelShutdown}
-              style={{ padding: "10px 20px", fontSize: "16px" }}
-            >
-              Cancel
-            </button>
-          </>
-        ) : (
-          <>
+    <div className="content">
+      {isScheduled ? (
+        <>
+          <TimeCountdown
+            initialSeconds={
+              time.hours * 60 * 60 + time.minutes * 60 + time.seconds
+            }
+          />
+          <button
+            className="actionBtn cancel"
+            onClick={cancelShutdown}
+            style={{ padding: "10px 20px", fontSize: "16px" }}
+          >
+            Cancel
+          </button>
+        </>
+      ) : (
+        <>
+          {isPreset ? (
+            <Presets onChange={setTime} />
+          ) : (
             <TimeInput time={time} onTimeChange={setTime} />
-            <button
-              className="actionBtn"
-              onClick={scheduleShutdown}
-              style={{ padding: "10px 20px", fontSize: "16px" }}
-            >
-              Start
-            </button>
-          </>
-        )}
-      </div>
-    </>
+          )}
+          <button
+            className="text-btn"
+            onClick={() => {
+              setIsPreset((prev) => !prev);
+            }}
+          >
+            {isPreset ? "Set manually" : "Pick a preset"}
+          </button>
+          <button
+            className="actionBtn"
+            onClick={scheduleShutdown}
+            style={{ padding: "10px 20px", fontSize: "16px" }}
+          >
+            Start
+          </button>
+        </>
+      )}
+    </div>
   );
 }
 
