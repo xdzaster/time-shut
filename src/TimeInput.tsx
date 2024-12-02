@@ -41,7 +41,6 @@ const TimeInput = ({ onTimeChange, time }: TimeInputProps) => {
   return (
     <div className="timeWrapper">
       <div className="timeInput">
-        <label htmlFor="hh">Hours</label>
         <input
           className="numberInput"
           id="hh"
@@ -51,10 +50,10 @@ const TimeInput = ({ onTimeChange, time }: TimeInputProps) => {
           min={0}
           onChange={(e) => updateTime("hours", e.target.value)}
         />
+        <label htmlFor="hh">Hours</label>
       </div>
       <span className="separator">:</span>
       <div className="timeInput">
-        <label htmlFor="mm">Minutes</label>
         <input
           className="numberInput"
           placeholder="MM"
@@ -65,11 +64,11 @@ const TimeInput = ({ onTimeChange, time }: TimeInputProps) => {
           value={String(time.minutes).padStart(2, "0")}
           onChange={(e) => updateTime("minutes", e.target.value)}
         />
+        <label htmlFor="mm">Minutes</label>
       </div>
       <span className="separator">:</span>
 
       <div className="timeInput">
-        <label htmlFor="ss">Seconds</label>
         <input
           className="numberInput"
           id="ss"
@@ -80,6 +79,7 @@ const TimeInput = ({ onTimeChange, time }: TimeInputProps) => {
           min={0}
           onChange={(e) => updateTime("seconds", e.target.value)}
         />
+        <label htmlFor="ss">Seconds</label>
       </div>
     </div>
   );
