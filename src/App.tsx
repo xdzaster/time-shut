@@ -1,15 +1,21 @@
 import { invoke } from "@tauri-apps/api/core";
 import { useState } from "react";
 
-import TimeInput, { Time } from "./TimeInput";
+import TimeInput from "./TimeInput";
+import type { Time } from "./TimeInput";
 import TimeCountdown from "./TimeCountdown";
 import Presets from "./Presets";
 
 function App() {
-  const [time, setTime] = useState<Time>({ hours: 0, minutes: 15, seconds: 0 });
+  const [time, setTime] = useState<Time>({ hours: 0, minutes: 0, seconds: 0 });
   const [isScheduled, setIsScheduled] = useState(false);
   const [isPreset, setIsPreset] = useState<boolean>(false);
+  const [hasError, setHasError] = useState(false);
 
+  const triggerError = () => {
+    setHasError(true);
+    setTimeout(() => setHasError(false), 1000);
+  };
   async function cancelShutdown() {
     try {
       await invoke("cancel_shutdown");
@@ -23,12 +29,13 @@ function App() {
     const timeInSeconds =
       time.hours * 60 * 60 + time.minutes * 60 + time.seconds;
     if (!timeInSeconds || isNaN(timeInSeconds) || timeInSeconds <= 0) {
-      alert("Please enter a valid time in minutes.");
+      triggerError();
       return;
     }
     try {
       await invoke("schedule_shutdown", { seconds: timeInSeconds });
       setIsScheduled(true);
+      localStorage.setItem("lastUsed", JSON.stringify(time));
     } catch (error) {
       console.error(error);
     }
@@ -56,7 +63,7 @@ function App() {
           {isPreset ? (
             <Presets onChange={setTime} />
           ) : (
-            <TimeInput time={time} onTimeChange={setTime} />
+            <TimeInput hasError={hasError} time={time} onTimeChange={setTime} />
           )}
           <button
             className="text-btn"

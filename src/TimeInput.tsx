@@ -2,8 +2,10 @@ export type Time = { hours: number; minutes: number; seconds: number };
 interface TimeInputProps {
   onTimeChange: (time: Time) => void;
   time: Time;
+  hasError: boolean;
 }
-const TimeInput = ({ onTimeChange, time }: TimeInputProps) => {
+
+const TimeInput = ({ onTimeChange, time, hasError }: TimeInputProps) => {
   const updateTime = (
     field: "hours" | "minutes" | "seconds",
     value: string
@@ -39,7 +41,7 @@ const TimeInput = ({ onTimeChange, time }: TimeInputProps) => {
   };
 
   return (
-    <div className="timeWrapper">
+    <div className={`timeWrapper ${hasError ? "error" : ""}`}>
       <div className="timeInput">
         <input
           className="numberInput"
