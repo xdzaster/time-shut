@@ -1,51 +1,66 @@
-import { Time } from "./TimeInput";
+import type { Time } from "./TimeInput";
 
 interface PresetsProp {
   onChange: (timeObj: Time) => void;
 }
 
-const PRESETS = {
-  "15 minutes": {
-    hours: 0,
-    minutes: 15,
-    seconds: 0,
-  },
-  "30 Minutes": {
-    hours: 0,
-    minutes: 30,
-    seconds: 0,
-  },
-  "45 Minutes": {
-    hours: 0,
-    minutes: 45,
-    seconds: 0,
-  },
-  "1 Hour": {
-    hours: 1,
-    minutes: 0,
-    seconds: 0,
-  },
-} as const;
-type Options = keyof typeof PRESETS;
+function formatTime({ hours, minutes, seconds }: Time) {
+  const parts = [];
+  if (hours > 0) parts.push(`${hours} hour${hours !== 1 ? "s" : ""}`);
+  if (minutes > 0) parts.push(`${minutes} minute${minutes !== 1 ? "s" : ""}`);
+  if (seconds > 0) parts.push(`${seconds} second${seconds !== 1 ? "s" : ""}`);
+  return parts.join(" ");
+}
 
 export default function Presets({ onChange }: PresetsProp) {
-  const options = Object.keys(PRESETS);
+  const PRESETS = [
+    {
+      hours: 0,
+      minutes: 15,
+      seconds: 0,
+    },
+    {
+      hours: 0,
+      minutes: 30,
+      seconds: 0,
+    },
+    {
+      hours: 1,
+      minutes: 0,
+      seconds: 0,
+    },
+    {
+      hours: 2,
+      minutes: 0,
+      seconds: 0,
+    },
+  ];
+
+  const localLastUsed = localStorage.getItem("lastUsed");
+  if (localLastUsed) {
+    const lastUsed = JSON.parse(localLastUsed) as Time;
+    const lastUsedLabel = formatTime(lastUsed);
+    const labelIndex = PRESETS.findIndex((preset) => {
+      return formatTime(preset) === lastUsedLabel;
+    });
+    if (labelIndex === -1) PRESETS[3] = lastUsed;
+  }
+
   return (
     <div className="buttonWrapper">
-      {options.map((option) => {
+      {PRESETS.map((option, index) => {
+        const label = formatTime(option);
         return (
           <>
             <input
-              onChange={(e) => {
-                const value = e.target.value as Options;
-                onChange(PRESETS[value]);
+              onChange={() => {
+                onChange(PRESETS[index]);
               }}
               type="radio"
-              value={option}
-              id={option}
+              id={label}
               name="time"
             />
-            <label htmlFor={option}>{option}</label>
+            <label htmlFor={label}>{label}</label>
           </>
         );
       })}

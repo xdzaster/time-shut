@@ -72,6 +72,15 @@ input[type="number"]::-webkit-outer-spin-button {
   background-clip: text;
 }
 
+.error {
+
+  .separator,
+  .timeInput,
+  .numberInput {
+    background-image: linear-gradient(135deg, #d0a487, #990000);
+  }
+}
+
 .timeInput {
   position: relative;
   display: flex;
@@ -162,4 +171,32 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .cancel {
   background: linear-gradient(135deg, #d0a487, #990000);
+}
+
+
+.error {
+  animation: shake 0.4s ease;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-1px);
+  }
+
+  50% {
+    transform: translateX(1px);
+  }
+
+  75% {
+    transform: translateX(-1px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
