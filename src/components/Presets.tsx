@@ -1,4 +1,4 @@
-import type { Time } from "./TimeInput";
+import { Time } from "./TimeInput";
 
 interface PresetsProp {
   onChange: (timeObj: Time) => void;

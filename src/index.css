@@ -2,7 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -10,6 +9,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-clr: #00996d;
+  --secondary-clr: #b8d087;
+  --error-1: #990000;
+  --error-2: #d0a487;
 }
 
 html {
@@ -37,11 +41,11 @@ body {
 
 .actionBtn {
   border: none;
-  background: linear-gradient(135deg, #b8d087, #00996d);
+  background: linear-gradient(135deg, var(--secondary-clr), var(--primary-clr));
   border-radius: 0.25rem;
   width: 100%;
   text-align: center;
-  color: white;
+  color: #fff;
   padding: 20px 20px;
   cursor: pointer;
   width: 240px;
@@ -67,7 +71,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .separator {
   font-size: 2rem;
   font-weight: 700;
-  background-image: linear-gradient(135deg, #b8d087, #00996d);
+  background-image: linear-gradient(135deg, var(--secondary-clr), var(--primary-clr));
   color: transparent;
   background-clip: text;
 }
@@ -77,7 +81,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .separator,
   .timeInput,
   .numberInput {
-    background-image: linear-gradient(135deg, #d0a487, #990000);
+    background-image: linear-gradient(135deg, var(--error-2), var(--error-1));
   }
 }
 
@@ -88,7 +92,7 @@ input[type="number"]::-webkit-outer-spin-button {
   align-items: center;
   text-align: center;
   font-size: 0.65rem;
-  background-image: linear-gradient(135deg, #b8d087, #00996d);
+  background-image: linear-gradient(135deg, var(--secondary-clr), var(--primary-clr));
   color: transparent;
   background-clip: text;
   font-weight: 700;
@@ -100,7 +104,7 @@ input[type="number"]::-webkit-outer-spin-button {
     background-image: none;
     background-color: transparent;
     font-weight: 900;
-    background-image: linear-gradient(135deg, #b8d087, #00996d);
+    background-image: linear-gradient(135deg, var(--secondary-clr), var(--primary-clr));
     color: transparent;
     background-clip: text;
     -webkit-box-shadow: none;
@@ -132,8 +136,8 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 14px;
     text-align: center;
     background-color: #242424;
-    border: 1px solid #00996d;
-    color: #00996d;
+    border: 1px solid var(--primary-clr);
+    color: var(--primary-clr);
     border-radius: 4px;
     cursor: pointer;
     padding-inline: 10px;
@@ -147,7 +151,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
     &:checked + label {
       color: #fff;
-      background-color: #00996d;
+      background-color: var(--primary-clr);
 
     }
   }
@@ -155,7 +159,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .text-btn {
   width: fit-content;
-  color: b8d087;
+  color: var(--secondary-clr);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -165,12 +169,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .scheduled {
   .actionBtn {
-    background: linear-gradient(135deg, #d0a487, #990000);
+    background: linear-gradient(135deg, var(--error-2), var(--error-1));
   }
 }
 
 .cancel {
-  background: linear-gradient(135deg, #d0a487, #990000);
+  background: linear-gradient(135deg, var(--error-2), var(--error-1));
 }
 
 

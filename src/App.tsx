@@ -1,10 +1,9 @@
 import { invoke } from "@tauri-apps/api/core";
 import { useState } from "react";
-
-import TimeInput from "./TimeInput";
-import type { Time } from "./TimeInput";
-import TimeCountdown from "./TimeCountdown";
-import Presets from "./Presets";
+import TimeInput from "./components/TimeInput";
+import type { Time } from "./components/TimeInput";
+import TimeCountdown from "./components/TimeCountdown";
+import Presets from "./components/Presets";
 
 function App() {
   const [time, setTime] = useState<Time>({ hours: 0, minutes: 0, seconds: 0 });

@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "TimeShut",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "identifier": "com.dzaster.timeshut",
   "build": {
     "frontendDist": "../dist",
@@ -13,7 +13,7 @@
   "app": {
     "windows": [
       {
-        "title": "TimeShut",
+        "title": "TimeShut v1.0.6",
         "width": 445,
         "height": 250,
         "fullscreen": false,
@@ -36,6 +36,7 @@
       "icons/icon.ico"
     ]
   },
+
   "plugins": {
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVENDVCMjZDRjRFREJDNEQKUldSTnZPMzBiTEpGN1Y3Y0swNWVEcTJORCttaE96U3R0eW9kUWJ6akNVUHRheFFKYTV2MW82eDQK",
