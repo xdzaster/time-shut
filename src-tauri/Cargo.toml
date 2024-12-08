@@ -1,6 +1,6 @@
 [package]
 name = "time-shut"
-version = "1.0.5"
+version = "1.0.6"
 description = "A Tauri App"
 authors = ["dzaster"]
 license = ""
