@@ -22,9 +22,6 @@
 
 
 ## Features  
-# Timeshut App Features
-
-# Timeshut app features
 
 1. **Set timing**  
    Customize the timer duration according to your needs.
