@@ -1,3 +1,6 @@
+[![Author](https://img.shields.io/badge/Author-dzaster-blue.svg)](https://github.com/xdzaster)
+![GitHub Release](https://img.shields.io/github/v/release/xdzaster/time-shut?style=flat-square)
+[![Github All Releases](https://img.shields.io/github/downloads/xdzaster/time-shut/total.svg)]()
 
 # Time Shut  
 
