@@ -1,23 +1,15 @@
 <div align="center">
   <p>
     <h1>
-      <a href="https://github.com/flameshot-org/flameshot">
         <img height="50px" src="https://raw.githubusercontent.com/xdzaster/time-shut/main/icon.png" alt="Flameshot" />
-      </a>
       <br />
       Time Shut
     </h1>
     <h4>simple app that lets you set a timer to automatically shut down your PC.</h4>
-    <span>
-      <img src="https://img.shields.io/badge/Author-dzaster-blue.svg?style=flat-square&color=00996d" alt="Author" />
-     <span>
-        <span>
-      <img src="https://img.shields.io/github/v/release/xdzaster/time-shut?style=flat-square&color=00996d" alt="Version" />
-      <span>
-       <span>
-      <img src="https://img.shields.io/github/downloads/xdzaster/time-shut/total.svg?style=flat-square&color=00996d" alt="Download" />
-      <span>
-  </p>
+       <img src="https://img.shields.io/badge/Author-dzaster-blue.svg?style=flat-square&color=00996d" alt="Author" />
+       <img src="https://img.shields.io/github/v/release/xdzaster/time-shut?style=flat-square&color=00996d" alt="Version" />
+       <img src="https://img.shields.io/github/downloads/xdzaster/time-shut/total.svg?style=flat-square&color=00996d" alt="Download" />
+   </p>
 </div>
 
 
