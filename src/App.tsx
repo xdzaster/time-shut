@@ -6,7 +6,19 @@ import TimeCountdown from "./components/TimeCountdown";
 import Presets from "./components/Presets";
 
 function App() {
-  const [time, setTime] = useState<Time>({ hours: 0, minutes: 0, seconds: 0 });
+  const [time, setTime] = useState<Time>(() => {
+    const localLastUsed = localStorage.getItem("lastUsed");
+    if (localLastUsed) {
+      const lastUsed = JSON.parse(localLastUsed) as Time;
+      return lastUsed;
+    } else {
+      return {
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    }
+  });
   const [isScheduled, setIsScheduled] = useState(false);
   const [isPreset, setIsPreset] = useState<boolean>(false);
   const [hasError, setHasError] = useState(false);

@@ -1,7 +1,7 @@
 <div align="center">
   <p>
     <h1>
-        <img height="50px" src="https://raw.githubusercontent.com/xdzaster/time-shut/main/icon.png" alt="Flameshot" />
+        <img height="100px" src="https://raw.githubusercontent.com/xdzaster/time-shut/main/icon.png" alt="Flameshot" />
       <br />
       Time Shut
     </h1>
